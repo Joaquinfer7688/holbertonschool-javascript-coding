@@ -1,14 +1,13 @@
 #!/usr/bin/node
 
-const request = require ("request");
+const request = require("request");
 
-function getstatus(url) {
-    request(url, (err, response) => {
+function getstatus (url) {
+    request.get(url, (err, response) => {
         if (err) {
-            console.error(err);
+            console.log(err);
             return;
         }
-
         console.log(`code: ${response.statusCode}`);
         });
 }
