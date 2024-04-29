@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 const request = require("request");
-
+const url = process.argv[2];
 function getstatus (url) {
     request.get(url, (err, response) => {
         if (err) {
@@ -11,3 +11,4 @@ function getstatus (url) {
         console.log(`code: ${response.statusCode}`);
         });
 }
+getstatus (url);
