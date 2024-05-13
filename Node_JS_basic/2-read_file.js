@@ -9,6 +9,8 @@ function countStudents(path) {
 
     const studentsCount = {};
 
+    let result = '';
+
     for (let i = 1; i < lines.length; i += 1) {
       const values = lines[i].split(',');
       for (let j = 0; j < fields.length; j += 1) {
@@ -23,11 +25,12 @@ function countStudents(path) {
     for (const field of Object.keys(studentsCount)) {
       const count = studentsCount[field].length;
       const list = studentsCount[field].join(', ');
-      console.log(`Number of students in ${field}: ${count}. List: ${list}`);
+      result += `Number of students in ${field}: ${count}. List: ${list}\n`; // Agregar mensaje al resultado
     }
 
-    const totalStudents = lines.length - 1; // Subtract 1 for the header line
-    console.log(`Number of students: ${totalStudents}`);
+    const totalStudents = lines.length - 1;
+    result += `Number of students: ${totalStudents}\n`;
+    return result;
   } catch (error) {
     throw new Error('Cannot load the database');
   }
